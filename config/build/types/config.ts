@@ -1,4 +1,6 @@
-export type BuildMode = 'development' | 'production';
+import { Configuration } from "webpack";
+
+export type BuildMode = Configuration['mode'];
 
 export type BuildPath = {
     entry: string;

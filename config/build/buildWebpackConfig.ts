@@ -16,7 +16,7 @@ const { entry, build } = paths;
             path: build, // куда произойдет сборка
             clean: true, // при сборке очищает устаревшие файлы сборки
         },
-        plugins: buildPlugins(paths),
+        plugins: buildPlugins(options),
         module: {
             rules: buildLoaders(),
         },

@@ -1,6 +1,6 @@
 import path from "path";
 import { buildWebpackConfig } from "./config/build/buildWebpackConfig";
-import {BuildPath} from "./config/build/types/config";
+import { BuildPath } from "./config/build/types/config";
 
 const paths: BuildPath = {
     entry: path.resolve(__dirname, 'src', 'index.ts'), // стартовая точка, path.resolve склеивает пути, __dirname текущая папка, далее склеиваемые папки
