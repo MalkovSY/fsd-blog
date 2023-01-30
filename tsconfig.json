@@ -17,7 +17,7 @@
     // after: import Moment from 'moment'; - Moment is 'object'
     "esModuleInterop": true,
     // Если библиотека не имеет default import, вместо import * as React from 'react' можно писать import React from 'react'
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
   },
   "ts-node": {
     "compilerOptions": {
