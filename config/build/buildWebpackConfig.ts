@@ -21,5 +21,6 @@ const { entry, build } = paths;
             rules: buildLoaders(),
         },
         resolve: buildResolvers(),
+        devtool: 'inline-source-map',
     }
 }
