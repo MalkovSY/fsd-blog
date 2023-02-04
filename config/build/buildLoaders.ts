@@ -8,7 +8,20 @@ export function buildLoaders(): Array<RuleSetRule> {
             exclude: /node_modules/, // исключаем из обработки нод модули
         };
 
+    const cssLoaders = {
+        test: /\.s[ac]ss$/i,
+        use: [ // В этом лоадере уже очень важен порядок лоадеров:
+            // Creates `style` nodes from JS strings
+            "style-loader",
+            // Translates CSS into CommonJS
+            "css-loader",
+            // Compiles Sass to CSS
+            "sass-loader",
+        ],
+    };
+
     return  [ // здесь конфигурируем лоадеры, они для обработки файлов, выходящих за рамки JS (png, svg, sccs, TS, jpg - любой, кто не .js)
         typScriptLoader,
+        cssLoaders
     ]
 }

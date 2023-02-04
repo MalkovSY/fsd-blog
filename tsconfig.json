@@ -8,7 +8,7 @@
     "module": "ESNext",
     // Версия ecma script в который код по итогу будет компилироваться, обычно ставят 5 или 6 версию, чтобы поддерживало большинство браузеров
     "target": "es5",
-    "jsx": "react",
+    "jsx": "react-jsx",
     // Компилятор будет обрабатывать не только TS файлы, но и JS
     "allowJs": true,
     "moduleResolution": "node",
@@ -18,10 +18,11 @@
     "esModuleInterop": true,
     // Если библиотека не имеет default import, вместо import * as React from 'react' можно писать import React from 'react'
     "allowSyntheticDefaultImports": true,
+
   },
   "ts-node": {
     "compilerOptions": {
-      "module": "CommonJS"
-    }
+      "module": "CommonJS",
+    },
   }
 }
