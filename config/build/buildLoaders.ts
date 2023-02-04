@@ -2,6 +2,8 @@ import { RuleSetRule } from "webpack";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import {BuildOptions} from "./types/config";
 
+// test ignore
+
 export function buildLoaders({ isDev }: BuildOptions): Array<RuleSetRule> {
 // Порядок при котором лоадеры возвращаются в массиве ИМЕЕТ значение, поэтому удобно их выносить в переменные, чтобы видеть четкую последовательность
     const typScriptLoader = {

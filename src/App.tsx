@@ -5,7 +5,6 @@ import AboutPageAsync from "./pages/AboutPage/AboutPage.async";
 import './styles/index.scss';
 import { useTheme } from "./theme/useTheme";
 
-// test
 const App = () => {
     const { theme, toggleTheme }  = useTheme();
 
