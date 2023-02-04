@@ -9,7 +9,7 @@ const App = () => {
         <div className='app'>
             <Link to='/main'>main</Link>
             <Link to='/about'>about</Link>
-            <Suspense fallback={'...loading'}>
+            <Suspense fallback={<div>...loading</div>}>
                 <Routes>
                     <Route path={'/main'} element={<MainPageAsync/>}/>
                     <Route path={'/about'} element={<AboutPageAsync/>}/>
