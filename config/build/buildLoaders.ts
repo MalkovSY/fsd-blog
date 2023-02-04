@@ -16,7 +16,12 @@ export function buildLoaders(options: BuildOptions): Array<RuleSetRule> {
             // Creates `style` nodes from JS strings
             options.isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
             // Translates CSS into CommonJS
-            "css-loader",
+            {
+                loader: "css-loader",
+                options: {
+                    modules: true
+                }
+            },
             // Compiles Sass to CSS
             "sass-loader",
         ],
