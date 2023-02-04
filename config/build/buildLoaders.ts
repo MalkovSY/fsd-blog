@@ -1,4 +1,5 @@
 import { RuleSetRule } from "webpack";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 export function buildLoaders(): Array<RuleSetRule> {
 // Порядок при котором лоадеры возвращаются в массиве ИМЕЕТ значение, поэтому удобно их выносить в переменные, чтобы видеть четкую последовательность
@@ -12,7 +13,7 @@ export function buildLoaders(): Array<RuleSetRule> {
         test: /\.s[ac]ss$/i,
         use: [ // В этом лоадере уже очень важен порядок лоадеров:
             // Creates `style` nodes from JS strings
-            "style-loader",
+            MiniCssExtractPlugin.loader,
             // Translates CSS into CommonJS
             "css-loader",
             // Compiles Sass to CSS
