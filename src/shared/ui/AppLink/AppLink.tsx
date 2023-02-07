@@ -4,12 +4,24 @@ import { classNames } from "shared/lib/classNames/classNames";
 
 import cls from './AppLink.modules.scss';
 
-interface AppLinkProps extends LinkProps{
-    className?: string;
+export enum AppLinkTheme {
+    PRIMARY = 'primary',
+    SECONDARY = 'secondary',
 }
 
-export const AppLink: FC<AppLinkProps> = ({ to, className, children, ...otherProps }) => {
-    const classes = classNames(cls.AppLink, {}, [className]);
+interface AppLinkProps extends LinkProps{
+    className?: string;
+    theme?: AppLinkTheme;
+}
+
+export const AppLink: FC<AppLinkProps> = ({
+        to,
+        className,
+        children,
+        theme = AppLinkTheme.PRIMARY,
+        ...otherProps
+    }) => {
+    const classes = classNames(cls.AppLink, {}, [className, cls[theme]]);
 
     return (
         <Link
