@@ -10,6 +10,20 @@ export function buildLoaders({ isDev }: BuildOptions): Array<RuleSetRule> {
             exclude: /node_modules/, // исключаем из обработки нод модули
         };
 
+    const svgLoader = {
+        test: /\.svg$/i,
+        use: ['@svgr/webpack'],
+    };
+
+    const fileLoader = {
+            test: /\.(png|jpe?g|gif)$/i,
+            use: [
+                {
+                    loader: 'file-loader',
+                },
+            ],
+        };
+
     const cssLoaders = {
         test: /\.s[ac]ss$/i,
         use: [ // В этом лоадере уже очень важен порядок лоадеров:
@@ -31,7 +45,9 @@ export function buildLoaders({ isDev }: BuildOptions): Array<RuleSetRule> {
     };
 
     return  [ // здесь конфигурируем лоадеры, они для обработки файлов, выходящих за рамки JS (png, svg, sccs, TS, jpg - любой, кто не .js)
+        fileLoader,
+        svgLoader,
         typScriptLoader,
-        cssLoaders
+        cssLoaders,
     ]
 }
