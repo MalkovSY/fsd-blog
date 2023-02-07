@@ -1,5 +1,6 @@
 import { classNames } from "shared/lib/classNames/classNames";
-import {useTheme} from "shared/lib/useTheme/useTheme";
+import { useTheme } from "shared/lib/useTheme/useTheme";
+import { Button } from "shared/ui/Button/Button";
 
 import cls from './ThemeSwitcher.modules.scss';
 
@@ -13,11 +14,11 @@ export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
     const classes = classNames(cls.ThemeSwitcher, {}, [className]);
 
     return (
-        <button
+        <Button
             className={classes}
             onClick={toggleTheme}
         >
             toggle switcher
-        </button>
+        </Button>
     );
 };
