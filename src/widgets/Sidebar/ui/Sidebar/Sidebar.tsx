@@ -21,8 +21,8 @@ export const Sidebar = ({ className }: SidebarProps) => {
     return (
         <div className={classes}>
             <Button onClick={onToggle}>toggle</Button>
-            <div className={cls.themeSwitcherWrapper}>
-                <ThemeSwitcher className={cls.themeSwitcherPosition} />
+            <div className={cls.switchersWrapper}>
+                <ThemeSwitcher />
             </div>
         </div>
     );

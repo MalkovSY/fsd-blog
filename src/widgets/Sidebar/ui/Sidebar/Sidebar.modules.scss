@@ -10,13 +10,10 @@
   width: var(--sidebar-width-collapsed);
 }
 
-.themeSwitcherWrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.themeSwitcherPosition {
+.switchersWrapper {
   position: absolute;
   bottom: 20px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
