@@ -10,7 +10,7 @@ export function buildPlugins(options: BuildOptions): Array<WebpackPluginInstance
     return [
         new HtmlWebpackPlugin({
             template: html,
-        }), // Генерит html для сборки, с подключенными скриптами
+        }),
         new ProgressPlugin(),
         new MiniCssExtractPlugin({
             filename: 'css/[name].[contenthash:8].css',
