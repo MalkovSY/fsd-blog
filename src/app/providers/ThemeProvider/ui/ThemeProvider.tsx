@@ -1,5 +1,5 @@
-import React, {useState, FC, useMemo} from 'react';
-import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from "shared/lib/useTheme/ThemContext";
+import React, { useState, FC, useMemo } from 'react';
+import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from 'shared/lib/useTheme/ThemContext';
 
 // Каст типов нужен из-за того, что сторедж всегда возвращает строку
 const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme || Theme.NORMAL;
@@ -10,7 +10,7 @@ const ThemeProvider: FC = ({ children }) => {
     const defaultProps = useMemo(() => ({
         theme,
         setTheme,
-    }), [theme])
+    }), [theme]);
 
     return (
         <ThemeContext.Provider value={defaultProps}>
