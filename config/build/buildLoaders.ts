@@ -1,6 +1,6 @@
 import { RuleSetRule } from "webpack";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import {BuildOptions} from "./types/config";
+import { BuildOptions } from "./types/config";
 
 export function buildLoaders({ isDev }: BuildOptions): Array<RuleSetRule> {
 // Порядок при котором лоадеры возвращаются в массиве ИМЕЕТ значение, поэтому удобно их выносить в переменные, чтобы видеть четкую последовательность
@@ -10,7 +10,17 @@ export function buildLoaders({ isDev }: BuildOptions): Array<RuleSetRule> {
         use: {
             loader: "babel-loader",
             options: {
-                presets: ['@babel/preset-env']
+                presets: ['@babel/preset-env'],
+                plugins: [
+                    [
+                        "i18next-extract",
+                        {
+                            locales: ['ru', 'en'],
+                            keyAsDefaultValue: true,
+                            outputPath: 'public/locales/{{locale}}/{{ns}}.json'
+                        }
+                    ]
+                ]
             }
         }
     };
@@ -58,6 +68,7 @@ export function buildLoaders({ isDev }: BuildOptions): Array<RuleSetRule> {
     return  [ // здесь конфигурируем лоадеры, они для обработки файлов, выходящих за рамки JS (png, svg, sccs, TS, jpg - любой, кто не .js)
         fileLoader,
         svgLoader,
+        babelLoader,
         typScriptLoader,
         cssLoaders,
     ]

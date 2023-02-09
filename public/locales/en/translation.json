@@ -1,6 +1,7 @@
 {
-  "Язык": "English",
-  "О нас": "About us",
+  "toggle": "toggle",
+  "Буба": "Буба",
   "Главная страница": "Main Page",
-  "toggle": "toggle"
+  "О нас": "About us",
+  "Язык": "English"
 }

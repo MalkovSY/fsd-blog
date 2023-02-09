@@ -19,6 +19,6 @@ export function buildPlugins(options: BuildOptions): Array<WebpackPluginInstance
         new DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
         }),
-        new ReactRefreshWebpackPlugin()
+        new ReactRefreshWebpackPlugin(),
     ]
 }
