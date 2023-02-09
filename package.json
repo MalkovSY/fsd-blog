@@ -9,7 +9,9 @@
     "build": "webpack --env mode=development",
     "build:prod": "webpack --env mode=production",
     "eslint": "eslint **/*.{ts,tsx}",
-    "eslint:fix": "eslint **/*.{ts,tsx} --fix"
+    "eslint:fix": "eslint **/*.{ts,tsx} --fix",
+    "stylelint": "stylelint \"**/*.scss\"",
+    "stylelint:fix": "stylelint \"**/*.scss\" --fix"
   },
   "keywords": [],
   "author": "Malkov Sergey",
@@ -39,6 +41,8 @@
     "sass": "^1.58.0",
     "sass-loader": "^13.2.0",
     "style-loader": "^3.3.1",
+    "stylelint": "^14.16.1",
+    "stylelint-config-standard-scss": "^6.1.0",
     "ts-loader": "9.2.6",
     "ts-node": "10.5.0",
     "typescript": "4.5",
