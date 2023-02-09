@@ -4,6 +4,17 @@ import {BuildOptions} from "./types/config";
 
 export function buildLoaders({ isDev }: BuildOptions): Array<RuleSetRule> {
 // Порядок при котором лоадеры возвращаются в массиве ИМЕЕТ значение, поэтому удобно их выносить в переменные, чтобы видеть четкую последовательность
+    const babelLoader = {
+        test: /\.(jsx?|tsx?)$/,
+        exclude: /node_modules/,
+        use: {
+            loader: "babel-loader",
+            options: {
+                presets: ['@babel/preset-env']
+            }
+        }
+    };
+
     const typScriptLoader = {
             test: /\.tsx?$/, // регулярка, по которой будут искаться файлы, которые необходимо пропустить через этот лоадер
             use: 'ts-loader', // лоадер, который используется для найденных файлов
