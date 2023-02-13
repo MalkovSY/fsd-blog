@@ -7,6 +7,12 @@
       {
         "message": "Expected class selector to be lowerCamelCase or UpperCamelCase"
       }
+    ],
+    "keyframes-name-pattern": [
+      "^[a-zA-Z0-9]+$",
+      {
+        "message": "Expected keyframe to be lowerCamelCase or UpperCamelCase"
+      }
     ]
   }
 }
