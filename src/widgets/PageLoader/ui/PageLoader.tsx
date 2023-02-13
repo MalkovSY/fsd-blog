@@ -1,5 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 
+import { Spinner } from 'shared/ui/Spinner/Spinner';
 import cls from './PageLoader.modules.scss';
 
 interface PageLoaderProps {
@@ -7,14 +8,9 @@ interface PageLoaderProps {
 }
 
 export const PageLoader = ({ className }: PageLoaderProps) => {
-    const classes = classNames(cls.ldsRing, {}, [className]);
+    const classes = classNames(cls.PageLoader, {}, [className]);
 
     return (
-        <div className={classes}>
-            <div />
-            <div />
-            <div />
-            <div />
-        </div>
+        <Spinner className={classes} />
     );
 };
