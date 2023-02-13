@@ -13,7 +13,7 @@ export default function NotFoundPage({ className }: NotFoundPageProps) {
 
     return (
         <div className={classes}>
-            {t('Страница не найдена 404')}
+            {t('Страница не найдена, 404')}
         </div>
     );
 }
