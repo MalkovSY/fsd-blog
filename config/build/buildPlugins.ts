@@ -10,6 +10,7 @@ export function buildPlugins(options: BuildOptions): Array<WebpackPluginInstance
   return [
     new HtmlWebpackPlugin({
       template: html,
+      favicon: 'src/shared/assets/icons/logo.png',
     }),
     new ProgressPlugin(),
     new MiniCssExtractPlugin({
