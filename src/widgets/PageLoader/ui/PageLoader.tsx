@@ -7,9 +7,14 @@ interface PageLoaderProps {
 }
 
 export const PageLoader = ({ className }: PageLoaderProps) => {
-    const classes = classNames(cls.PageLoader, {}, [className]);
+    const classes = classNames(cls.ldsRing, {}, [className]);
 
     return (
-        <div className={classes}>gruzim...</div>
+        <div className={classes}>
+            <div />
+            <div />
+            <div />
+            <div />
+        </div>
     );
 };
