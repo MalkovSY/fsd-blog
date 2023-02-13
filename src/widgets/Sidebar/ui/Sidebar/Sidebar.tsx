@@ -12,22 +12,22 @@ interface SidebarProps {
 }
 
 export const Sidebar = ({ className }: SidebarProps) => {
-    const { t } = useTranslation();
-    const [collapsed, setCollapsed] = useState(false);
+  const { t } = useTranslation();
+  const [collapsed, setCollapsed] = useState(false);
 
-    const classes = classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className]);
+  const classes = classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className]);
 
-    const onToggle = () => {
-        setCollapsed((prev) => !prev);
-    };
+  const onToggle = () => {
+    setCollapsed((prev) => !prev);
+  };
 
-    return (
-        <div className={classes}>
-            <Button onClick={onToggle}>{t('toggle')}</Button>
-            <div className={cls.switchersWrapper}>
-                <ThemeSwitcher />
-                <LangSwitcher />
-            </div>
-        </div>
-    );
+  return (
+    <div className={classes}>
+      <Button onClick={onToggle}>{t('toggle')}</Button>
+      <div className={cls.switchersWrapper}>
+        <ThemeSwitcher />
+        <LangSwitcher />
+      </div>
+    </div>
+  );
 };

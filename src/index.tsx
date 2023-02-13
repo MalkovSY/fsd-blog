@@ -7,12 +7,12 @@ import App from './App/App';
 import 'shared/config/i18nConfig/i18nConfig';
 
 render(
-    <BrowserRouter>
-        <ThemeProvider>
-            <Suspense fallback="translate...">
-                <App />
-            </Suspense>
-        </ThemeProvider>
-    </BrowserRouter>,
-    document.getElementById('root'),
+  <BrowserRouter>
+    <ThemeProvider>
+      <Suspense fallback="translate...">
+        <App />
+      </Suspense>
+    </ThemeProvider>
+  </BrowserRouter>,
+  document.getElementById('root'),
 );

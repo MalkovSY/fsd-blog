@@ -7,19 +7,19 @@ import { Sidebar } from 'widgets/Sidebar';
 import './styles/index.scss';
 
 function App() {
-    const { theme } = useTheme();
+  const { theme } = useTheme();
 
-    const className = classNames('app', {}, [theme]);
+  const className = classNames('app', {}, [theme]);
 
-    return (
-        <div className={className}>
-            <Navbar />
-            <div className="contentWrapper">
-                <Sidebar />
-                <AppRouter />
-            </div>
-        </div>
-    );
+  return (
+    <div className={className}>
+      <Navbar />
+      <div className="contentWrapper">
+        <Sidebar />
+        <AppRouter />
+      </div>
+    </div>
+  );
 }
 
 export default App;

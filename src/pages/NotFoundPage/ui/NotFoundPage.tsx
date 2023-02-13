@@ -7,13 +7,13 @@ interface NotFoundPageProps {
 }
 
 export default function NotFoundPage({ className }: NotFoundPageProps) {
-    const { t } = useTranslation();
+  const { t } = useTranslation();
 
-    const classes = classNames(cls.NotFoundPage, {}, [className]);
+  const classes = classNames(cls.NotFoundPage, {}, [className]);
 
-    return (
-        <div className={classes}>
-            {t('Страница не найдена, 404')}
-        </div>
-    );
+  return (
+    <div className={classes}>
+      {t('Страница не найдена, 404')}
+    </div>
+  );
 }
