@@ -1,0 +1,11 @@
+.ErrorBoundary {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.errorBoundaryStack {
+  max-width: calc(100% - var(--navbar-height));
+}
