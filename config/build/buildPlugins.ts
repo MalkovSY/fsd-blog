@@ -24,6 +24,8 @@ export function buildPlugins(options: BuildOptions): Array<WebpackPluginInstance
     new ReactRefreshWebpackPlugin({
       overlay: false,
     }),
-    new BundleAnalyzerPlugin(),
+    new BundleAnalyzerPlugin({
+      openAnalyzer: false,
+    }),
   ];
 }
