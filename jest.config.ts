@@ -28,4 +28,7 @@ export default {
     'json',
     'node',
   ],
+  modulePaths: [
+    '<rootDir>/src/',
+  ],
 };
