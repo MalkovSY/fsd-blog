@@ -35,5 +35,6 @@ export default {
   setupFilesAfterEnv: ['<rootDir>/config/jest/setupTests.ts'],
   moduleNameMapper: {
     '\\.(s?css)$': 'identity-obj-proxy',
+    '\\.svg': '<rootDir>/config/jest/SvgrMock.tsx',
   },
 };
