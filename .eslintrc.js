@@ -9,8 +9,6 @@ module.exports = {
     'airbnb',
     'plugin:i18next/recommended',
   ],
-  overrides: [
-  ],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -56,4 +54,12 @@ module.exports = {
   globals: {
     __IS_DEV__: 'readonly',
   },
+  overrides: [
+    {
+      files: ['*.spec.tsx'],
+      rules: {
+        'i18next/no-literal-string': 'off',
+      },
+    },
+  ],
 };

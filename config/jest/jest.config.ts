@@ -12,11 +12,15 @@ export default {
     'lcov',
     'clover',
   ],
-  moduleDirectories: ['node_modules'],
-  testEnvironment: 'jsdom',
+  moduleDirectories: ['<rootDir>/node_modules', '<rootDir>/src'],
+  rootDir: '../../',
+  modulePaths: [
+    '<rootDir>/src/',
+  ],
   testMatch: [
     '<rootDir>/src/**/*.(spec|test).[tj]s?(x)',
   ],
+  testEnvironment: 'jsdom',
   watchPathIgnorePatterns: ['node_modules'],
   moduleFileExtensions: [
     'js',
@@ -28,7 +32,8 @@ export default {
     'json',
     'node',
   ],
-  modulePaths: [
-    '<rootDir>/src/',
-  ],
+  setupFilesAfterEnv: ['<rootDir>/config/jest/setupTests.ts'],
+  moduleNameMapper: {
+    '\\.(s?css)$': 'identity-obj-proxy',
+  },
 };
