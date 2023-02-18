@@ -21,6 +21,7 @@ export const Button: FC<ButtonProps> = ({
     <button
       type="button"
       className={classes}
+      data-testid="buttonTestId"
       {...otherProps}
     >
       {children}
