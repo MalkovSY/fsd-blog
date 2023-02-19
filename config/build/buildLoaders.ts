@@ -3,7 +3,6 @@ import { BuildOptions } from './types/config';
 import { buildCssLoaders } from './loaders/cssLoaders';
 
 export function buildLoaders({ isDev }: BuildOptions): Array<RuleSetRule> {
-// Порядок при котором лоадеры возвращаются в массиве ИМЕЕТ значение, поэтому удобно их выносить в переменные, чтобы видеть четкую последовательность
   const babelLoader = {
     test: /\.(jsx?|tsx?)$/,
     exclude: /node_modules/,
@@ -47,7 +46,7 @@ export function buildLoaders({ isDev }: BuildOptions): Array<RuleSetRule> {
 
   const cssLoaders = buildCssLoaders(isDev);
 
-  return [ // здесь конфигурируем лоадеры, они для обработки файлов, выходящих за рамки JS (png, svg, sccs, TS, jpg - любой, кто не .js)
+  return [
     fileLoader,
     svgLoader,
     babelLoader,
