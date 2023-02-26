@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="935689d0-756c-4934-b89b-839f2a817afb" name="Changes" comment="rename ci yml">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/main.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="935689d0-756c-4934-b89b-839f2a817afb" name="Changes" comment="fix packages">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -112,14 +111,7 @@
       <workItem from="1676806317175" duration="139000" />
       <workItem from="1676806486485" duration="3807000" />
       <workItem from="1676879630616" duration="8605000" />
-      <workItem from="1677397411585" duration="13654000" />
-    </task>
-    <task id="LOCAL-00046" summary="install jest, config jest, test on classNames func">
-      <created>1676035615296</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1676035615296</updated>
+      <workItem from="1677397411585" duration="14092000" />
     </task>
     <task id="LOCAL-00047" summary="create not found page, base loader">
       <created>1676039997739</created>
@@ -457,7 +449,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677414994344</updated>
     </task>
-    <option name="localTasksCounter" value="95" />
+    <task id="LOCAL-00095" summary="add screenshot testing">
+      <created>1677415834360</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1677415834360</updated>
+    </task>
+    <option name="localTasksCounter" value="96" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -486,14 +485,12 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="test actions" />
     <MESSAGE value="expand ci actions" />
     <MESSAGE value="ci actions expanded with tests" />
     <MESSAGE value="fix build plugins" />
     <MESSAGE value="expand actions" />
     <MESSAGE value="fix plugind" />
     <MESSAGE value="fix ci" />
-    <MESSAGE value="fix packages" />
     <MESSAGE value="fix actions" />
     <MESSAGE value="test all plugins" />
     <MESSAGE value="add dev plugin" />
@@ -511,6 +508,8 @@
     <MESSAGE value="revert webpack cli" />
     <MESSAGE value="delete favicon from html loader" />
     <MESSAGE value="rename ci yml" />
-    <option name="LAST_COMMIT_MESSAGE" value="rename ci yml" />
+    <MESSAGE value="add screenshot testing" />
+    <MESSAGE value="fix packages" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix packages" />
   </component>
 </project>
