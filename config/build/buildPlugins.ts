@@ -26,11 +26,11 @@ export function buildPlugins(options: BuildOptions): Array<WebpackPluginInstance
     }),
   ];
 
-  if (isDev) {
-    plugins.push(new BundleAnalyzerPlugin({
-      openAnalyzer: false,
-    }));
-  }
+  // if (isDev) {
+  plugins.push(new BundleAnalyzerPlugin({
+    openAnalyzer: false,
+  }));
+  // }
 
   return plugins;
 }
