@@ -21,12 +21,12 @@ export function buildPlugins(options: BuildOptions): Array<WebpackPluginInstance
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
     }),
+    new ReactRefreshWebpackPlugin({
+      overlay: false,
+    }),
   ];
 
   if (isDev) {
-    plugins.push(new ReactRefreshWebpackPlugin({
-      overlay: false,
-    }));
     plugins.push(new BundleAnalyzerPlugin({
       openAnalyzer: false,
     }));
