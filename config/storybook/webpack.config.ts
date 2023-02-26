@@ -1,6 +1,6 @@
 import { Configuration, RuleSetRule } from 'webpack';
 import path from 'path';
-import { buildCssLoaders } from '../build/loaders/buildCssLoaders';
+import buildCssLoaders from '../build/loaders/buildCssLoaders';
 import { BuildPath } from '../build/types/config';
 
 export default ({ config }: { config: Configuration }) => {
