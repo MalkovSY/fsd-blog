@@ -13,7 +13,7 @@ export function buildWebpackConfig(options: BuildOptions): Configuration {
     mode,
     entry,
     output: { // куда и как делаем сборку нашего приложения
-      filename: '[name].[contenthash].bundle.js', // Название главного файла сборки приложения, [name] - берется из entry, по дефолту он main (если в entry не указ имя)
+      filename: '[name].[contenthash].js', // Название главного файла сборки приложения, [name] - берется из entry, по дефолту он main (если в entry не указ имя)
       path: build, // куда произойдет сборка
       clean: true, // при сборке очищает устаревшие файлы сборки
     },
