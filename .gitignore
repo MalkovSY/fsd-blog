@@ -1,15 +1,7 @@
-node_modules/
-build/
-.idea/*
-.idea_modules/
+node_modules
+/build
 /storybook-static
-.idea/replstate.xml
-logs
-*.log
-npm-debug.log*
 coverage
-*.lcov
-.lock-wscript
 build/Release
 .npm
 .eslintcache
@@ -18,8 +10,6 @@ build/Release
 .cache
 .parcel-cache
 .next
-out
-.nuxt
 dist
 .cache/
 Icon
