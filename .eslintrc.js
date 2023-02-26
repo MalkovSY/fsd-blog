@@ -39,6 +39,7 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'import/extensions': 'off',
     'no-underscore-dangle': 'off',
+    'linebreak-style': 'off',
     'max-len': [
       'error',
       {
