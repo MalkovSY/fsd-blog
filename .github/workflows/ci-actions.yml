@@ -23,3 +23,7 @@ jobs:
         run: npm run eslint
       - name: Run stylelint css
         run: npm run stylelint
+      - name: Run unit tests
+        run: npm run test:unit
+      - name: Run ui tests
+        run: npm run test:ui
