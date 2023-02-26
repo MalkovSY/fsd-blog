@@ -19,8 +19,3 @@ export const Primary = Template.bind({});
 Primary.args = {
   children: 'Link',
 };
-
-export const Clear = Template.bind({});
-Clear.args = {
-  children: 'Link',
-};
