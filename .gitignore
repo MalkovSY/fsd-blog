@@ -1,11 +1,12 @@
 node_modules
-/build
+build/
 /storybook-static
 coverage
 build/Release
+.idea/
 .idea/*
 .idea_modules/
-.idea/replstate.xml
+.idea/workspace.xml
 .npm
 .eslintcache
 .env
