@@ -19,6 +19,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install packages
         run: npm install
+      - name: Build production project
+        run: npm run build:prod
       - name: Run ESLint ts
         run: npm run eslint
       - name: Run stylelint css
