@@ -22,13 +22,13 @@ jobs:
       - name: build production project
         run: npm run build:prod
       - name: Run ESLint ts
-        if: ${{ always() }}
+        if: always()
         run: npm run eslint
       - name: Run stylelint css
-        if: ${{ always() }}
+        if: always()
         run: npm run stylelint
       - name: Run unit tests
-        if: ${{ always() }}
+        if: always()
         run: npm run test:unit
       - name: Run storybook build
         run: npm run storybook:build
