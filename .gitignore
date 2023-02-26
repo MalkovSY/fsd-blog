@@ -3,7 +3,9 @@ node_modules
 /storybook-static
 coverage
 build/Release
-.idea/
+.idea/*
+.idea_modules/
+.idea/replstate.xml
 .npm
 .eslintcache
 .env
