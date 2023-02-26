@@ -3,6 +3,7 @@ build/
 /storybook-static
 coverage
 build/Release
+.idea
 .idea/
 .idea/*
 .idea_modules/
