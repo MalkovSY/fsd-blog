@@ -19,3 +19,5 @@ dist
 .cache/
 Icon
 .npmrc
+.loki/report.html
+.loki/report.json
