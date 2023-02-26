@@ -6,7 +6,7 @@ on:
     branches: [ master ]
 jobs:
   pipeline:
-    runs-on: windows-2019
+    runs-on: macos-latest
     strategy:
       matrix:
         node-version: [ 19.x ]
@@ -22,12 +22,15 @@ jobs:
       - name: build production project
         run: npm run build:prod
       - name: Run ESLint ts
+        if: ${{ always() }}
         run: npm run eslint
       - name: Run stylelint css
+        if: ${{ always() }}
         run: npm run stylelint
       - name: Run unit tests
+        if: ${{ always() }}
         run: npm run test:unit
       - name: Run storybook build
         run: npm run storybook:build
-#      - name: Run ui tests
-#        run: npm run test:ui:ci
+      - name: Run ui tests
+        run: npm run test:ui:ci
