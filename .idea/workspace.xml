@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="935689d0-756c-4934-b89b-839f2a817afb" name="Changes" comment="fix packages">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/main.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
@@ -111,14 +112,7 @@
       <workItem from="1676806317175" duration="139000" />
       <workItem from="1676806486485" duration="3807000" />
       <workItem from="1676879630616" duration="8605000" />
-      <workItem from="1677397411585" duration="14092000" />
-    </task>
-    <task id="LOCAL-00047" summary="create not found page, base loader">
-      <created>1676039997739</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1676039997739</updated>
+      <workItem from="1677397411585" duration="14653000" />
     </task>
     <task id="LOCAL-00048" summary="fix not found msg">
       <created>1676291873290</created>
@@ -456,7 +450,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677415834360</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="fix packages">
+      <created>1677416245008</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1677416245008</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
