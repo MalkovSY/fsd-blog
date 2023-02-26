@@ -33,7 +33,7 @@ module.exports = {
     'no-unused-vars': 'off',
     'no-shadow': 'off',
     'react/require-default-props': 'off',
-    'react/jsx-props-no-spreading': 'warn',
+    'react/jsx-props-no-spreading': 'off',
     'react/function-component-definition': 'off',
     'import/no-import-module-exports': 'off',
     'import/no-extraneous-dependencies': 'off',
