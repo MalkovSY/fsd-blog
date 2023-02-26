@@ -39,7 +39,6 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'import/extensions': 'off',
     'no-underscore-dangle': 'off',
-    'linebreak-style': 'off',
     'max-len': [
       'error',
       {
@@ -51,6 +50,7 @@ module.exports = {
       },
     ],
     'i18next/no-literal-string': ['error', { markupOnly: true }],
+    'linebreak-style': 'warn',
   },
   globals: {
     __IS_DEV__: 'readonly',
