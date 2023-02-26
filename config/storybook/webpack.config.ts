@@ -1,6 +1,5 @@
 import { Configuration, RuleSetRule } from 'webpack';
 import path from 'path';
-import { buildCssLoaders } from '../build/loaders/buildCssLoaders';
 import { BuildPath } from '../build/types/config';
 
 export default ({ config }: { config: Configuration }) => {
@@ -29,7 +28,22 @@ export default ({ config }: { config: Configuration }) => {
     test: /\.svg$/i,
     use: ['@svgr/webpack'],
   });
-  config.module.rules.push(buildCssLoaders(true));
+  config.module.rules.push({
+    test: /\.s[ac]ss$/i,
+    use: [
+      'style-loader',
+      {
+        loader: 'css-loader',
+        options: {
+          modules: {
+            auto: (resPath: string) => Boolean(resPath.includes('.modules.')),
+            localIdentName: '[path][name]__[local]',
+          },
+        },
+      },
+      'sass-loader',
+    ],
+  });
 
   return config;
 };
