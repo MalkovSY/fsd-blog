@@ -2,6 +2,7 @@ node_modules/
 build/
 .idea/*
 .idea_modules/
+/storybook-static
 .idea/replstate.xml
 logs
 *.log
