@@ -8,7 +8,7 @@ import { BuildOptions } from './types/config';
 export function buildPlugins(options: BuildOptions): Array<WebpackPluginInstance> {
   const { paths: { html }, isDev } = options;
 
-  return [
+  const plugins = [
     new HtmlWebpackPlugin({
       template: html,
       favicon: 'src/shared/assets/icons/logo.png',
@@ -21,11 +21,16 @@ export function buildPlugins(options: BuildOptions): Array<WebpackPluginInstance
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
     }),
-    new ReactRefreshWebpackPlugin({
-      overlay: false,
-    }),
-    new BundleAnalyzerPlugin({
-      openAnalyzer: false,
-    }),
   ];
+
+  if (isDev) {
+    plugins.push(new ReactRefreshWebpackPlugin({
+      overlay: false,
+    }));
+    plugins.push(new BundleAnalyzerPlugin({
+      openAnalyzer: false,
+    }));
+  }
+
+  return plugins;
 }
