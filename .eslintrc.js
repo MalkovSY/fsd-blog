@@ -21,6 +21,7 @@ module.exports = {
     'react',
     '@typescript-eslint',
     'i18next',
+    'react-hooks',
   ],
   rules: {
     'react/jsx-indent': ['error', 2],
@@ -51,6 +52,10 @@ module.exports = {
     ],
     'i18next/no-literal-string': ['error', { markupOnly: true }],
     'linebreak-style': 'warn',
+    'jsx-a11y/no-static-element-interactions': 'off',
+    'jsx-a11y/click-events-have-key-events': 'off',
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
   },
   globals: {
     __IS_DEV__: 'readonly',
