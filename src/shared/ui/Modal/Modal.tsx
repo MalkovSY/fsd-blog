@@ -52,7 +52,10 @@ export const Modal = ({
 
   const handleContentClick = useCallback((e: MouseEvent) => e.stopPropagation(), []);
 
-  const classes = classNames(cls.Modal, { [cls.opened]: isOpen, [cls.isClosing]: isClosing }, [className, theme]);
+  const classes = classNames(cls.Modal, {
+    [cls.opened]: isOpen,
+    [cls.isClosing]: isClosing,
+  }, [className, theme]);
 
   return (
     <Portal>
