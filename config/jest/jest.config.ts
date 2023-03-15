@@ -37,4 +37,7 @@ export default {
     '\\.(s?css)$': 'identity-obj-proxy',
     '\\.svg': '<rootDir>/config/jest/SvgrMock.tsx',
   },
+  globals: {
+    __IS_DEV__: true,
+  },
 };
