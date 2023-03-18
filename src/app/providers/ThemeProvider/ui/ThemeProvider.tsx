@@ -2,7 +2,7 @@ import React, { useState, FC, useMemo } from 'react';
 import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from 'shared/lib/useTheme/ThemContext';
 
 // Каст типов нужен из-за того, что сторедж всегда возвращает строку
-const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme || Theme.NORMAL;
+const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme || Theme.DEFAULT;
 
 interface ThemeInitialProps {
   initialTheme?: Theme;
