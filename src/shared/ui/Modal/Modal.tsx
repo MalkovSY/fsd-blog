@@ -19,7 +19,6 @@ const ANIMATION_CLOSE_DELAY_MS = 300;
 export const Modal = ({
   children, className, isOpen, onClose,
 }: ModalProps) => {
-  const { theme } = useTheme();
   const [isClosing, setIsClosing] = useState(false);
   const timeRef = useRef<ReturnType<typeof setTimeout>>();
 
@@ -55,7 +54,7 @@ export const Modal = ({
   const classes = classNames(cls.Modal, {
     [cls.opened]: isOpen,
     [cls.isClosing]: isClosing,
-  }, [className, theme]);
+  }, [className]);
 
   return (
     <Portal>

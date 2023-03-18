@@ -1,5 +1,4 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useTheme } from 'shared/lib/useTheme/useTheme';
 import { AppRouter } from 'app/providers/router';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
@@ -7,9 +6,7 @@ import { Sidebar } from 'widgets/Sidebar';
 import './styles/index.scss';
 
 function App() {
-  const { theme } = useTheme();
-
-  const className = classNames('app', {}, [theme]);
+  const className = classNames('app', {}, []);
 
   return (
     <div className={className}>
