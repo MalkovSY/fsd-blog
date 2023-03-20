@@ -4,7 +4,6 @@ import {
 import { classNames } from 'shared/lib/classNames/classNames';
 
 import { Portal } from 'shared/ui/Portal/Portal';
-import { useTheme } from 'shared/lib/useTheme/useTheme';
 import cls from './Modal.modules.scss';
 
 interface ModalProps {
@@ -12,15 +11,23 @@ interface ModalProps {
     className?: string;
     isOpen?: boolean;
     onClose?: () => void;
+    lazy?: boolean;
 }
 
 const ANIMATION_CLOSE_DELAY_MS = 300;
 
 export const Modal = ({
-  children, className, isOpen, onClose,
+  children, className, isOpen, onClose, lazy,
 }: ModalProps) => {
   const [isClosing, setIsClosing] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const timeRef = useRef<ReturnType<typeof setTimeout>>();
+
+  useEffect(() => {
+    if (isOpen) {
+      setIsMounted(true);
+    }
+  }, [isOpen]);
 
   const handleClose = useCallback(() => {
     if (onClose) {
@@ -55,6 +62,10 @@ export const Modal = ({
     [cls.opened]: isOpen,
     [cls.isClosing]: isClosing,
   }, [className]);
+
+  if (lazy && !isMounted) {
+    return null;
+  }
 
   return (
     <Portal>
