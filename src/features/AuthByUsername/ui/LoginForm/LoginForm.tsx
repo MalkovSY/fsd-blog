@@ -27,6 +27,7 @@ export const LoginForm = ({ className }: LoginFormProps) => {
         value={usernameValue}
         onChange={changeUsernameHandler}
         placeholder={t('Логин')}
+        autoFocus
         className={cls.input}
       />
       <Input

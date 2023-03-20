@@ -3,7 +3,7 @@ import {
   HTMLInputTypeAttribute,
   InputHTMLAttributes,
   memo,
-  useCallback,
+  useCallback, useEffect, useRef,
   useState,
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -17,16 +17,31 @@ interface InputProps extends InputExtendedProps {
   onChange?: (value: string) => void;
   type?: HTMLInputTypeAttribute;
   placeholder?: string;
+  autoFocus?: boolean,
   className?: string;
 }
 
 const INPUT_CARET_WIDTH = 9;
 
 const InputProto = ({
-  value, onChange, type = 'text', placeholder, className, ...otherProps
+  value,
+  onChange,
+  type = 'text',
+  placeholder,
+  autoFocus,
+  className,
+  ...otherProps
 }: InputProps) => {
   const [isFocused, setIsFocused] = useState(false);
   const [caretPosition, setCaretPosition] = useState(0);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (autoFocus) {
+      setIsFocused(true);
+      inputRef?.current?.focus();
+    }
+  }, [autoFocus]);
 
   const changeHandler = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     onChange?.(e.target.value);
@@ -47,6 +62,7 @@ const InputProto = ({
       {placeholder ? <span className={cls.placeholder}>{`${placeholder}>`}</span> : null}
       <div className={cls.InputWrapper}>
         <input
+          ref={inputRef}
           value={value}
           onChange={changeHandler}
           onSelect={selectHandler}
