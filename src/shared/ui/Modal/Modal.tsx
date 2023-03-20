@@ -27,6 +27,9 @@ export const Modal = ({
     if (isOpen) {
       setIsMounted(true);
     }
+
+    // Для автофокуса убираем из ДОМ модалку после закрытия, убрать, если будет нужна модалка в ДОМ после открытия всегда
+    return () => setIsMounted(false);
   }, [isOpen]);
 
   const handleClose = useCallback(() => {

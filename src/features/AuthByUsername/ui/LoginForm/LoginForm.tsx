@@ -11,9 +11,9 @@ interface LoginFormProps {
 }
 
 export const LoginForm = ({ className }: LoginFormProps) => {
+  const { t } = useTranslation();
   const [usernameValue, setUsernameValue] = useState('');
   const [passwordValue, setPasswordValue] = useState('');
-  const { t } = useTranslation();
 
   const changeUsernameHandler = useCallback((value) => setUsernameValue(value), []);
 
