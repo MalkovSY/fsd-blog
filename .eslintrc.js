@@ -40,6 +40,7 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'import/extensions': 'off',
     'no-underscore-dangle': 'off',
+    'no-console': 'off',
     'max-len': [
       'error',
       {

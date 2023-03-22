@@ -4,6 +4,9 @@ import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input/Input';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useDispatch, useSelector } from 'react-redux';
+import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername';
+import { AppDispatch } from 'app/providers/StoreProvider';
+import { getError } from 'features/AuthByUsername/model/selectors/getError/getError';
 import { loginActions } from '../../model/slice/loginSlice';
 import { getLoading } from '../../model/selectors/getLoading/getLoading';
 import { getUsername } from '../../model/selectors/getUsername/getUsername';
@@ -17,10 +20,11 @@ interface LoginFormProps {
 
 const LoginFormProto = ({ className }: LoginFormProps) => {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const username = useSelector(getUsername);
   const password = useSelector(getPassword);
   const isLoading = useSelector(getLoading);
+  const error = useSelector(getError);
 
   const changeUsernameHandler = useCallback((value) => {
     dispatch(loginActions.setUsername(value));
@@ -31,13 +35,14 @@ const LoginFormProto = ({ className }: LoginFormProps) => {
   }, [dispatch]);
 
   const submitHandler = useCallback(() => {
-    dispatch(loginActions.authSubmit());
-  }, [dispatch]);
+    dispatch(loginByUsername({ username, password }));
+  }, [dispatch, username, password]);
 
   const classes = classNames(cls.LoginForm, {}, [className]);
 
   return (
     <div className={classes}>
+      {error ? <div>{error}</div> : null}
       <Input
         value={username}
         onChange={changeUsernameHandler}

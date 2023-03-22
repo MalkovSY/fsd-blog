@@ -1,5 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { loginByUsername } from '../../model/services/loginByUsername';
 import { LoginSchema } from '../../model/types/LoginSchema';
+import { AUTH_LOCALSTORAGE_KEY } from '../../const/localStorage';
 
 const initialState: LoginSchema = {
   username: '',
@@ -8,7 +10,7 @@ const initialState: LoginSchema = {
 };
 
 export const loginSlice = createSlice({
-  name: 'login/AuthByUsername',
+  name: 'login',
   initialState,
   reducers: {
     setUsername: (state, action: PayloadAction<string>) => {
@@ -21,6 +23,22 @@ export const loginSlice = createSlice({
       console.log('state', state.password);
       console.log('state2', state.username);
     },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(loginByUsername.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(loginByUsername.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = undefined;
+
+        localStorage.setItem(AUTH_LOCALSTORAGE_KEY, JSON.stringify(action.payload));
+      })
+      .addCase(loginByUsername.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      });
   },
 });
 
