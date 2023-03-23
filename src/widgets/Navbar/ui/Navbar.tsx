@@ -22,7 +22,9 @@ export const Navbar = ({ className }: NavbarProps) => {
 
   const onOpenAuthModal = useCallback(() => setIsAuthModalOpen(true), []);
 
-  const logoutHandler = useCallback(() => dispatch(userActions.setAuthData(undefined)), [dispatch]);
+  const logoutHandler = useCallback(() => {
+    dispatch(userActions.logout());
+  }, [dispatch]);
 
   const classes = classNames(cls.Navbar, {}, [className]);
 

@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useEffect } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input/Input';
@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername';
 import { AppDispatch } from 'app/providers/StoreProvider';
 import { getError } from 'features/AuthByUsername/model/selectors/getError/getError';
+import { getUserAuthData } from 'entities/User';
 import { loginActions } from '../../model/slice/loginSlice';
 import { getLoading } from '../../model/selectors/getLoading/getLoading';
 import { getUsername } from '../../model/selectors/getUsername/getUsername';
@@ -15,16 +16,24 @@ import { getPassword } from '../../model/selectors/getPassword/getPassword';
 import cls from './LoginForm.modules.scss';
 
 interface LoginFormProps {
-    className?: string;
+  onClose?: () => void;
+  className?: string;
 }
 
-const LoginFormProto = ({ className }: LoginFormProps) => {
+const LoginFormProto = ({ onClose, className }: LoginFormProps) => {
   const { t } = useTranslation();
   const dispatch = useDispatch<AppDispatch>();
   const username = useSelector(getUsername);
   const password = useSelector(getPassword);
   const isLoading = useSelector(getLoading);
   const error = useSelector(getError);
+  const user = useSelector(getUserAuthData);
+
+  useEffect(() => {
+    if (user) {
+      onClose();
+    }
+  }, [onClose, user]);
 
   const changeUsernameHandler = useCallback((value) => {
     dispatch(loginActions.setUsername(value));

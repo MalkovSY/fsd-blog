@@ -4,8 +4,17 @@ import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 
 import './styles/index.scss';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { userActions } from 'entities/User';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(userActions.initAuthData());
+  }, [dispatch]);
+
   const className = classNames('app', {}, []);
 
   return (
