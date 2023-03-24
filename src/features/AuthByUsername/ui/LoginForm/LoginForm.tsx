@@ -8,6 +8,7 @@ import { loginByUsername } from 'features/AuthByUsername/model/services/loginByU
 import { AppDispatch } from 'app/providers/StoreProvider';
 import { getError } from 'features/AuthByUsername/model/selectors/getError/getError';
 import { getUserAuthData } from 'entities/User';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { loginActions } from '../../model/slice/loginSlice';
 import { getLoading } from '../../model/selectors/getLoading/getLoading';
 import { getUsername } from '../../model/selectors/getUsername/getUsername';
@@ -51,7 +52,8 @@ const LoginFormProto = ({ onClose, className }: LoginFormProps) => {
 
   return (
     <div className={classes}>
-      {error ? <div>{error}</div> : null}
+      <Text className={cls.title} title={t('Авторизация')} />
+      {error ? <Text text={error} theme={TextTheme.ERROR} /> : null}
       <Input
         value={username}
         onChange={changeUsernameHandler}
