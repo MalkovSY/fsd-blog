@@ -38,6 +38,7 @@ DarkWithTitle.args = {
   title: 'Title',
   text: 'Text',
 };
+
 DarkWithTitle.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const DarkWithoutTitle = Template.bind({});
@@ -45,6 +46,7 @@ export const DarkWithoutTitle = Template.bind({});
 DarkWithoutTitle.args = {
   text: 'Text',
 };
+
 DarkWithoutTitle.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const DarkError = Template.bind({});
