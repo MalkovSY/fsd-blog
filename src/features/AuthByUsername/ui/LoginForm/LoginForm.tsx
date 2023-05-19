@@ -48,12 +48,14 @@ const LoginFormProto = ({ onClose, className }: LoginFormProps) => {
     dispatch(loginByUsername({ username, password }));
   }, [dispatch, username, password]);
 
+  const ErrorMessage = error ? <Text text={error} theme={TextTheme.ERROR} /> : null;
+
   const classes = classNames(cls.LoginForm, {}, [className]);
 
   return (
     <div className={classes}>
       <Text className={cls.title} title={t('Авторизация')} />
-      {error ? <Text text={error} theme={TextTheme.ERROR} /> : null}
+      {ErrorMessage}
       <Input
         value={username}
         onChange={changeUsernameHandler}

@@ -22,7 +22,7 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, { re
       return response.data;
     } catch (error) {
       console.error('login/AuthByUsername ERROR', error);
-      return thunkAPI.rejectWithValue('login/AuthByUsername ERROR');
+      return thunkAPI.rejectWithValue('Fail, json-server is running?');
     }
   },
 );
