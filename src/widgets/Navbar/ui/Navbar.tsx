@@ -26,26 +26,28 @@ export const Navbar = ({ className }: NavbarProps) => {
     dispatch(userActions.logout());
   }, [dispatch]);
 
+  const LoginAuthButton = user ? (
+    <Button
+      theme={ButtonTheme.CLEAR}
+      onClick={logoutHandler}
+    >
+      {t('Выйти')}
+    </Button>
+  ) : (
+    <Button
+      theme={ButtonTheme.CLEAR}
+      onClick={onOpenAuthModal}
+    >
+      {t('Авторизация')}
+    </Button>
+  );
+
   const classes = classNames(cls.Navbar, {}, [className]);
 
   return (
     <div className={classes}>
       <div className={cls.links}>
-        {user ? (
-          <Button
-            theme={ButtonTheme.CLEAR}
-            onClick={logoutHandler}
-          >
-            {t('Выйти')}
-          </Button>
-        ) : (
-          <Button
-            theme={ButtonTheme.CLEAR}
-            onClick={onOpenAuthModal}
-          >
-            {t('Авторизация')}
-          </Button>
-        )}
+        {LoginAuthButton}
         <LoginModal
           isOpen={isAuthModalOpen}
           onClose={onCloseAuthModal}
