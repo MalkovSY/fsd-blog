@@ -15,6 +15,18 @@ export const Normal = Template.bind({});
 Normal.args = {};
 Normal.decorators = [StoreDecorator()];
 
+export const NormalError = Template.bind({});
+NormalError.args = {};
+NormalError.decorators = [StoreDecorator({ loginForm: { username: 'User', password: '12345', error: 'Неверный логин или пароль' } })];
+
+export const Loading = Template.bind({});
+Loading.args = {};
+Loading.decorators = [StoreDecorator({ loginForm: { isLoading: true } })];
+
 export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [StoreDecorator(), ThemeDecorator(Theme.DARK)];
+
+export const DarkError = Template.bind({});
+DarkError.args = {};
+DarkError.decorators = [StoreDecorator({ loginForm: { username: 'User', password: '12345', error: 'Неверный логин или пароль' } }), ThemeDecorator(Theme.DARK)];
