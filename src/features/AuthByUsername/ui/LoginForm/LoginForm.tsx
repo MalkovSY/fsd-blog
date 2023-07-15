@@ -21,7 +21,10 @@ interface LoginFormProps {
   className?: string;
 }
 
-const LoginFormProto = ({ onClose, className }: LoginFormProps) => {
+const LoginFormProto = ({
+  onClose,
+  className,
+}: LoginFormProps) => {
   const { t } = useTranslation();
   const dispatch = useDispatch<AppDispatch>();
   const username = useSelector(getUsername);
@@ -45,10 +48,13 @@ const LoginFormProto = ({ onClose, className }: LoginFormProps) => {
   }, [dispatch]);
 
   const submitHandler = useCallback(() => {
-    dispatch(loginByUsername({ username, password }));
+    dispatch(loginByUsername({
+      username,
+      password,
+    }));
   }, [dispatch, username, password]);
 
-  const ErrorMessage = error ? <Text text={t('Вы ввели неверный логин или пароль')} theme={TextTheme.ERROR} /> : null;
+  const ErrorMessage = error ? <Text text={t('Вы ввели неверный логин или пароль!')} theme={TextTheme.ERROR} /> : null;
 
   const classes = classNames(cls.LoginForm, {}, [className]);
 
