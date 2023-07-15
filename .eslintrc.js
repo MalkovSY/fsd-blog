@@ -58,6 +58,7 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'no-param-reassign': 'off',
+    'no-restricted-syntax': 'warn',
   },
   globals: {
     __IS_DEV__: 'readonly',

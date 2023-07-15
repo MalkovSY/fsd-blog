@@ -3,13 +3,13 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input/Input';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch } from 'app/providers/StoreProvider';
+import { useDispatch, useSelector, useStore } from 'react-redux';
+import { AppDispatch, ReduxStoreWithManager } from 'app/providers/StoreProvider';
 import { getUserAuthData } from 'entities/User';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { loginByUsername } from '../../model/services/loginByUsername';
 import { getError } from '../../model/selectors/getError/getError';
-import { loginActions } from '../../model/slice/loginSlice';
+import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import { getLoading } from '../../model/selectors/getLoading/getLoading';
 import { getUsername } from '../../model/selectors/getUsername/getUsername';
 import { getPassword } from '../../model/selectors/getPassword/getPassword';
@@ -32,6 +32,17 @@ const LoginFormProto = ({
   const isLoading = useSelector(getLoading);
   const error = useSelector(getError);
   const user = useSelector(getUserAuthData);
+  const store = useStore() as ReduxStoreWithManager;
+
+  useEffect(() => {
+    store.reduceManager.add('loginForm', loginReducer);
+    dispatch({ type: '@INIT loginForm reducer' });
+
+    return () => {
+      store.reduceManager.remove('loginForm');
+      dispatch({ type: '@DESTROY loginForm reducer' });
+    };
+  }, []);
 
   useEffect(() => {
     if (user) {
