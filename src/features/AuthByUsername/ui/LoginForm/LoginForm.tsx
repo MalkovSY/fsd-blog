@@ -59,6 +59,8 @@ const LoginFormProto = ({
   }, [dispatch]);
 
   const submitHandler = useCallback(() => {
+    // TODO: Удалить после рефактора store
+  // @ts-ignore
     dispatch(loginByUsername({
       username,
       password,
