@@ -15,30 +15,35 @@ interface DynamicModuleLoaderProps {
   children?: ReactNode;
 }
 
-export const DynamicModuleLoader = ({ reducers, children }: DynamicModuleLoaderProps) => {
+export const DynamicModuleLoader = ({
+  reducers,
+  children,
+}: DynamicModuleLoaderProps) => {
   const dispatch = useDispatch<AppDispatch>();
   const store = useStore() as ReduxStoreWithManager;
 
   useEffect(() => {
-    Object.entries(reducers).forEach((item) => {
-      const [reducerKey, reducer]: ReducersListEntry = item;
-      store.reduceManager.add(reducerKey, reducer);
-      dispatch({ type: `@INIT ${reducerKey} reducer` });
-    });
+    Object.entries(reducers)
+      .forEach((item) => {
+        const [reducerKey, reducer] = item as ReducersListEntry;
+        store.reduceManager.add(reducerKey, reducer);
+        dispatch({ type: `@INIT ${reducerKey} reducer` });
+      });
 
     return () => {
-      Object.entries(reducers).forEach((item) => {
-        const [reducerKey]: ReducersListEntry = item;
-        store.reduceManager.remove(reducerKey);
-        dispatch({ type: `@DESTROY ${reducerKey} reducer` });
-      });
+      Object.entries(reducers)
+        .forEach((item) => {
+          const [reducerKey]: ReducersListEntry = item as ReducersListEntry;
+          store.reduceManager.remove(reducerKey);
+          dispatch({ type: `@DESTROY ${reducerKey} reducer` });
+        });
     };
   }, []);
 
   return (
     // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
-      { children }
+      {children}
     </>
   );
 };
