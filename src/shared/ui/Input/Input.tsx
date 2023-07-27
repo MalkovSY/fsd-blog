@@ -24,7 +24,7 @@ interface InputProps extends InputExtendedProps {
 const INPUT_CARET_WIDTH = 9;
 
 const InputProto = ({
-  value,
+  value = '',
   onChange,
   type = 'text',
   placeholder,

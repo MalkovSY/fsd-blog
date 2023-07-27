@@ -4,13 +4,14 @@ import { AppDispatch, ReduxStoreWithManager } from 'app/providers/StoreProvider'
 import { StateSchemaKeys } from 'app/providers/StoreProvider/config/StateSchema';
 import { Reducer } from '@reduxjs/toolkit';
 
-export interface ReducerType {
-  reducerKey: StateSchemaKeys;
-  reducer: Reducer;
+export type ReducersList = {
+  [reducerKey in StateSchemaKeys]?: Reducer
 }
 
+type ReducersListEntry = [StateSchemaKeys, Reducer];
+
 interface DynamicModuleLoaderProps {
-  reducers: Array<ReducerType>;
+  reducers: ReducersList;
   children?: ReactNode;
 }
 
@@ -19,13 +20,15 @@ export const DynamicModuleLoader = ({ reducers, children }: DynamicModuleLoaderP
   const store = useStore() as ReduxStoreWithManager;
 
   useEffect(() => {
-    reducers.forEach(({ reducerKey, reducer }) => {
+    Object.entries(reducers).forEach((item) => {
+      const [reducerKey, reducer]: ReducersListEntry = item;
       store.reduceManager.add(reducerKey, reducer);
       dispatch({ type: `@INIT ${reducerKey} reducer` });
     });
 
     return () => {
-      reducers.forEach(({ reducerKey }) => {
+      Object.entries(reducers).forEach((item) => {
+        const [reducerKey]: ReducersListEntry = item;
         store.reduceManager.remove(reducerKey);
         dispatch({ type: `@DESTROY ${reducerKey} reducer` });
       });

@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from 'app/providers/StoreProvider';
 import { getUserAuthData } from 'entities/User';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { DynamicModuleLoader, ReducerType } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { loginByUsername } from '../../model/services/loginByUsername';
 import { getError } from '../../model/selectors/getError/getError';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
@@ -21,6 +21,10 @@ interface LoginFormProps {
   onClose?: () => void;
   className?: string;
 }
+
+const LoginFormReducers: ReducersList = {
+  loginForm: loginReducer,
+};
 
 const LoginFormProto = ({
   onClose,
@@ -50,7 +54,7 @@ const LoginFormProto = ({
 
   const submitHandler = useCallback(() => {
     // TODO: Удалить после рефактора store
-  // @ts-ignore
+    // @ts-ignore
     dispatch(loginByUsername({
       username,
       password,
@@ -59,18 +63,11 @@ const LoginFormProto = ({
 
   const ErrorMessage = error ? <Text text={t('Вы ввели неверный логин или пароль!')} theme={TextTheme.ERROR} /> : null;
 
-  const loginFormAsyncReducers: Array<ReducerType> = [
-    {
-      reducerKey: 'loginForm',
-      reducer: loginReducer,
-    },
-  ];
-
   const classes = classNames(cls.LoginForm, {}, [className]);
 
   return (
     <DynamicModuleLoader
-      reducers={loginFormAsyncReducers}
+      reducers={LoginFormReducers}
     >
       <div className={classes}>
         <Text className={cls.title} title={t('Авторизация')} />
