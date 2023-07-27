@@ -9,7 +9,9 @@ export default {
   component: LoginForm,
 } as ComponentMeta<typeof LoginForm>;
 
-const Template: ComponentStory<typeof LoginForm> = (args) => <LoginForm {...args} />;
+const Template: ComponentStory<typeof LoginForm> = (args) => (
+  <LoginForm {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};
@@ -17,7 +19,13 @@ Normal.decorators = [StoreDecorator()];
 
 export const NormalError = Template.bind({});
 NormalError.args = {};
-NormalError.decorators = [StoreDecorator({ loginForm: { username: 'User', password: '12345', error: 'Неверный логин или пароль' } })];
+NormalError.decorators = [StoreDecorator({
+  loginForm: {
+    username: 'User',
+    password: '12345',
+    error: 'Неверный логин или пароль',
+  },
+})];
 
 export const Loading = Template.bind({});
 Loading.args = {};
@@ -29,4 +37,10 @@ Dark.decorators = [StoreDecorator(), ThemeDecorator(Theme.DARK)];
 
 export const DarkError = Template.bind({});
 DarkError.args = {};
-DarkError.decorators = [StoreDecorator({ loginForm: { username: 'User', password: '12345', error: 'Неверный логин или пароль' } }), ThemeDecorator(Theme.DARK)];
+DarkError.decorators = [StoreDecorator({
+  loginForm: {
+    username: 'User',
+    password: '12345',
+    error: 'Неверный логин или пароль',
+  },
+}), ThemeDecorator(Theme.DARK)];
