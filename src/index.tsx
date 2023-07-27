@@ -4,8 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'app/providers/ThemeProvider';
 import { ErrorBoundary } from 'app/providers/ErrorBoundary';
 import { StoreProvider } from 'app/providers/StoreProvider';
-// @ts-ignore
-import App from './App/App';
+import App from './app/App';
 
 import 'shared/config/i18nConfig/i18nConfig';
 
