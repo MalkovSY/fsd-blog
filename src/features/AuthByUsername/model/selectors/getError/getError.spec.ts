@@ -5,12 +5,19 @@ import { getError } from './getError';
 describe('getError', () => {
   it('return error', () => {
     const errorMsg = 'get error';
-    const store: DeepPartial<StateSchema> = {
+    const state: DeepPartial<StateSchema> = {
       loginForm: {
         error: errorMsg,
       },
     };
-    expect(getError(store as StateSchema))
+    expect(getError(state as StateSchema))
       .toBe(errorMsg);
+  });
+
+  it('return undefined with empty state', () => {
+    const state: DeepPartial<StateSchema> = {};
+
+    expect(getError(state as StateSchema))
+      .toBe(undefined);
   });
 });

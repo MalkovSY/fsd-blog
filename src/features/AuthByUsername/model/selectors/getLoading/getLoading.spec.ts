@@ -4,24 +4,31 @@ import { getLoading } from './getLoading';
 
 describe('getLoading', () => {
   it('return loading true', () => {
-    const store: DeepPartial<StateSchema> = {
+    const state: DeepPartial<StateSchema> = {
       loginForm: {
         isLoading: true,
       },
     };
 
-    expect(getLoading(store as StateSchema))
+    expect(getLoading(state as StateSchema))
       .toBe(true);
   });
 
   it('return loading false', () => {
-    const store: DeepPartial<StateSchema> = {
+    const state: DeepPartial<StateSchema> = {
       loginForm: {
         isLoading: false,
       },
     };
 
-    expect(getLoading(store as StateSchema))
+    expect(getLoading(state as StateSchema))
       .toBe(false);
+  });
+
+  it('return undefined with empty state', () => {
+    const state: DeepPartial<StateSchema> = {};
+
+    expect(getLoading(state as StateSchema))
+      .toBe(undefined);
   });
 });

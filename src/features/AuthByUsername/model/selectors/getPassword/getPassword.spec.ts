@@ -5,13 +5,20 @@ import { getPassword } from './getPassword';
 describe('getPassword', () => {
   it('return password', () => {
     const password = 'password';
-    const store: DeepPartial<StateSchema> = {
+    const state: DeepPartial<StateSchema> = {
       loginForm: {
         password,
       },
     };
 
-    expect(getPassword(store as StateSchema))
+    expect(getPassword(state as StateSchema))
       .toBe(password);
+  });
+
+  it('return undefined with empty state', () => {
+    const state: DeepPartial<StateSchema> = {};
+
+    expect(getPassword(state as StateSchema))
+      .toBe(undefined);
   });
 });

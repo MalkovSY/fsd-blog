@@ -5,13 +5,20 @@ import { getUsername } from './getUsername';
 describe('getUsername', () => {
   it('return username', () => {
     const username = 'username';
-    const store: DeepPartial<StateSchema> = {
+    const state: DeepPartial<StateSchema> = {
       loginForm: {
         username,
       },
     };
 
-    expect(getUsername(store as StateSchema))
+    expect(getUsername(state as StateSchema))
       .toBe(username);
+  });
+
+  it('return undefined with empty state', () => {
+    const state: DeepPartial<StateSchema> = {};
+
+    expect(getUsername(state as StateSchema))
+      .toBe(undefined);
   });
 });
