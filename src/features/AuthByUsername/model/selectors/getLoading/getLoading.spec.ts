@@ -25,10 +25,10 @@ describe('getLoading', () => {
       .toBe(false);
   });
 
-  it('return undefined with empty state', () => {
+  it('return false with empty state', () => {
     const state: DeepPartial<StateSchema> = {};
 
     expect(getLoading(state as StateSchema))
-      .toBe(undefined);
+      .toBe(false);
   });
 });
