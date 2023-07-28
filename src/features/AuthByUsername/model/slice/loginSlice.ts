@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction, ReducersMapObject } from '@reduxjs/toolkit';
 import { loginByUsername } from '../../model/services/loginByUsername';
 import { LoginSchema } from '../../model/types/LoginSchema';
 import { AUTH_LOCALSTORAGE_KEY } from '../../const/localStorage';
@@ -9,7 +9,7 @@ const initialState: LoginSchema = {
   isLoading: false,
 };
 
-export const loginSlice = createSlice({
+export const loginSlice = createSlice<LoginSchema, ReducersMapObject>({
   name: 'login',
   initialState,
   reducers: {
