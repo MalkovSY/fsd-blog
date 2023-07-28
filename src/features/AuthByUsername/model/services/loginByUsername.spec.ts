@@ -27,7 +27,7 @@ describe('loginByUsername service', () => {
       .toBeCalled();
 
     expect(thunk.dispatch)
-      .toBeCalledWith(userActions.setAuthData(authData));
+      .toBeCalledWith(userActions.setAuthData(authData as any));
 
     expect(thunk.dispatch)
       .toBeCalledTimes(3);
