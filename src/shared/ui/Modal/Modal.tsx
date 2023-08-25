@@ -16,7 +16,7 @@ interface ModalProps {
 
 const ANIMATION_CLOSE_DELAY_MS = 300;
 
-const ModalProto = ({
+export const Modal = ({
   children, className, isOpen, onClose, lazy,
 }: ModalProps) => {
   const [isClosing, setIsClosing] = useState(false);
@@ -82,5 +82,3 @@ const ModalProto = ({
     </Portal>
   );
 };
-
-export const Modal = memo(ModalProto);
