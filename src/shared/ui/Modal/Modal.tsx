@@ -1,5 +1,5 @@
 import {
-  MouseEvent, ReactNode, useCallback, useEffect, useRef, useState,
+  MouseEvent, ReactNode, memo, useCallback, useEffect, useRef, useState,
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 
@@ -16,7 +16,7 @@ interface ModalProps {
 
 const ANIMATION_CLOSE_DELAY_MS = 300;
 
-export const Modal = ({
+const ModalProto = ({
   children, className, isOpen, onClose, lazy,
 }: ModalProps) => {
   const [isClosing, setIsClosing] = useState(false);
@@ -82,3 +82,5 @@ export const Modal = ({
     </Portal>
   );
 };
+
+export const Modal = memo(ModalProto);

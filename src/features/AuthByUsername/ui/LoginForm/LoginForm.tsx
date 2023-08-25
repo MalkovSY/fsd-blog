@@ -61,6 +61,18 @@ const LoginFormProto = ({
     }));
   }, [dispatch, username, password]);
 
+  const enterClick = useCallback((e: KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      submitHandler();
+    }
+  }, [submitHandler]);
+
+  useEffect(() => {
+    window.addEventListener('keydown', enterClick);
+
+    return () => window.removeEventListener('keydown', enterClick);
+  }, [enterClick]);
+
   const ErrorMessage = error ? <Text text={t('Вы ввели неверный логин или пароль!')} theme={TextTheme.ERROR} /> : null;
 
   const classes = classNames(cls.LoginForm, {}, [className]);
