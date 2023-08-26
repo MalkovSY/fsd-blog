@@ -45,6 +45,14 @@ export const Sidebar = ({ className }: SidebarProps) => {
           <MainIcon className={cls.linkIcon} />
           <span className={cls.linkText}>{t('Главная страница')}</span>
         </AppLink>
+        <AppLink
+          to={RouterPath.profile}
+          theme={AppLinkTheme.SECONDARY}
+          className={cls.link}
+        >
+          <MainIcon className={cls.linkIcon} />
+          <span className={cls.linkText}>{t('Профиль')}</span>
+        </AppLink>
       </div>
       <Button
         className={cls.collapseBtn}
