@@ -28,36 +28,6 @@
   margin-top: 8px;
 }
 
-.link {
-  display: flex;
-  align-items: center;
-  margin-top: 8px;
-}
-
-.linkIcon {
-  fill: var(--inverted-primary-color);
-}
-
-.linkText {
-  margin-left: 6px;
-  opacity: 1;
-}
-
 .collapsed {
   width: var(--sidebar-width-collapsed);
-
-  .switchersWrapper {
-    flex-direction: column;
-  }
-
-  .link {
-    margin-top: 0;
-  }
-
-  .linkText {
-    opacity: 0;
-    transition: opacity 0.2s;
-    width: 0;
-    margin-left: 0;
-  }
 }

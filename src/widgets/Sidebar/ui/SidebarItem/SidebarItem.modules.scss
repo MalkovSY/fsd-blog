@@ -1,0 +1,28 @@
+.link {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.linkIcon {
+  fill: var(--inverted-primary-color);
+}
+
+.linkText {
+  margin-left: 6px;
+  opacity: 1;
+}
+
+.collapsed {
+  .linkIcon {
+    margin-top: 8px;
+  }
+
+  .linkText {
+    opacity: 0;
+    transition: opacity 0.2s;
+    width: 0;
+    height: 0;
+    margin-left: 0;
+  }
+}
