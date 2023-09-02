@@ -41,6 +41,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 
   const linkList = useMemo(() => sidebarItemList.map(({ Icon, path, text }) => (
     <SidebarItem
+      key={path}
       Icon={Icon}
       path={path}
       text={text}
