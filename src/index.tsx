@@ -9,8 +9,8 @@ import App from './app/App';
 import 'shared/config/i18nConfig/i18nConfig';
 
 render(
-  <StoreProvider>
-    <BrowserRouter>
+  <BrowserRouter>
+    <StoreProvider>
       <ErrorBoundary useSuspense={false}>
         <ThemeProvider>
           <Suspense fallback="Перевод...">
@@ -18,7 +18,7 @@ render(
           </Suspense>
         </ThemeProvider>
       </ErrorBoundary>
-    </BrowserRouter>
-  </StoreProvider>,
+    </StoreProvider>
+  </BrowserRouter>,
   document.getElementById('root'),
 );

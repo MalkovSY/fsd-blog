@@ -62,6 +62,7 @@ module.exports = {
   },
   globals: {
     __IS_DEV__: 'readonly',
+    __API_URL__: 'readonly',
   },
   overrides: [
     {
