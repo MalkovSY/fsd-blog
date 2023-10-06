@@ -17,7 +17,7 @@ interface ModalProps {
 const ANIMATION_CLOSE_DELAY_MS = 300;
 
 export const Modal = ({
-  children, className, isOpen, onClose, lazy,
+  children, className = '', isOpen, onClose, lazy,
 }: ModalProps) => {
   const [isClosing, setIsClosing] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
@@ -54,7 +54,7 @@ export const Modal = ({
     }
 
     return () => {
-      clearTimeout(timeRef.current);
+      clearTimeout(timeRef.current as ReturnType<typeof setTimeout>);
       window.removeEventListener('keydown', escapeClick);
     };
   }, [isOpen, escapeClick]);

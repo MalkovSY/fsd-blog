@@ -12,7 +12,7 @@ interface NavbarProps {
     className?: string;
 }
 
-export const Navbar = ({ className }: NavbarProps) => {
+export const Navbar = ({ className = '' }: NavbarProps) => {
   const { t } = useTranslation();
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const user = useSelector(getUserAuthData);

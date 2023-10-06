@@ -29,7 +29,7 @@ const InputProto = ({
   type = 'text',
   placeholder,
   autoFocus,
-  className,
+  className = '',
   ...otherProps
 }: InputProps) => {
   const [isFocused, setIsFocused] = useState(false);

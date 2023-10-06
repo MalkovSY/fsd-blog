@@ -1,6 +1,7 @@
 import { DeepPartial } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { getUsername } from './getUsername';
+import { LoginSchema } from '../../types/LoginSchema';
 
 describe('getUsername', () => {
   it('return username', () => {
@@ -8,7 +9,7 @@ describe('getUsername', () => {
     const state: DeepPartial<StateSchema> = {
       loginForm: {
         username,
-      },
+      } as LoginSchema,
     };
 
     expect(getUsername(state as StateSchema))

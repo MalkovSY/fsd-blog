@@ -6,7 +6,7 @@ interface NotFoundPageProps {
     className?: string;
 }
 
-export default function NotFoundPage({ className }: NotFoundPageProps) {
+export default function NotFoundPage({ className = '' }: NotFoundPageProps) {
   const { t } = useTranslation();
 
   const classes = classNames(cls.NotFoundPage, {}, [className]);

@@ -27,7 +27,7 @@ export const DynamicModuleLoader = ({
       .forEach((item) => {
         const [reducerKey, reducer] = item as ReducersListEntry;
         store.reduceManager.add(reducerKey, reducer);
-        dispatch({ type: `@INIT ${reducerKey} reducer` });
+        dispatch({ type: `@INIT ${reducerKey} reducer`, payload: {} });
       });
 
     return () => {
@@ -35,7 +35,7 @@ export const DynamicModuleLoader = ({
         .forEach((item) => {
           const [reducerKey]: ReducersListEntry = item as ReducersListEntry;
           store.reduceManager.remove(reducerKey);
-          dispatch({ type: `@DESTROY ${reducerKey} reducer` });
+          dispatch({ type: `@DESTROY ${reducerKey} reducer`, payload: {} });
         });
     };
   }, []);

@@ -28,7 +28,7 @@ const LoginFormReducers: ReducersList = {
 
 const LoginFormProto = ({
   onClose,
-  className,
+  className = '',
 }: LoginFormProps) => {
   const { t } = useTranslation();
   const dispatch = useDispatch<AppDispatch>();
@@ -40,7 +40,7 @@ const LoginFormProto = ({
 
   useEffect(() => {
     if (user) {
-      onClose();
+      onClose?.();
     }
   }, [onClose, user]);
 
@@ -53,10 +53,8 @@ const LoginFormProto = ({
   }, [dispatch]);
 
   const submitHandler = useCallback(() => {
-    dispatch(loginByUsername({
-      username,
-      password,
-    }));
+    // @ts-ignore TODO: fix types
+    dispatch(loginByUsername({ username, password }));
   }, [dispatch, username, password]);
 
   const enterClick = useCallback((e: KeyboardEvent) => {

@@ -6,7 +6,7 @@ interface SpinnerProps {
     className?: string;
 }
 
-export const Spinner = ({ className }: SpinnerProps) => {
+export const Spinner = ({ className = '' }: SpinnerProps) => {
   const classes = classNames(cls.ldsRing, {}, [className]);
 
   return (

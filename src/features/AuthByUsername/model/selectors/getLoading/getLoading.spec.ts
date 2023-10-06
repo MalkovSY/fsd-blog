@@ -1,13 +1,14 @@
 import { DeepPartial } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { getLoading } from './getLoading';
+import { LoginSchema } from '../../types/LoginSchema';
 
 describe('getLoading', () => {
   it('return loading true', () => {
     const state: DeepPartial<StateSchema> = {
       loginForm: {
         isLoading: true,
-      },
+      } as LoginSchema,
     };
 
     expect(getLoading(state as StateSchema))
@@ -18,7 +19,7 @@ describe('getLoading', () => {
     const state: DeepPartial<StateSchema> = {
       loginForm: {
         isLoading: false,
-      },
+      } as LoginSchema,
     };
 
     expect(getLoading(state as StateSchema))

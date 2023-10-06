@@ -17,7 +17,7 @@ export const StoreDecorator = (
       {
         ...initialAsyncReducers,
         ...asyncReducers,
-      }
+      } as DeepPartial<ReducersMapObject<StateSchema>> // TODO: fix types
     }
   >
     <Story />

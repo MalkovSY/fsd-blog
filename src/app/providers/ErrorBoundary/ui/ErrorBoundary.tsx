@@ -22,7 +22,7 @@ class ErrorBoundary
     return this.setState({
       error: {
         message: error.message,
-        stack: error.stack,
+        stack: error.stack || '',
       },
     });
   }

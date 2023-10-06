@@ -8,7 +8,7 @@ interface LoginModalProps {
   className?: string;
 }
 
-export const LoginModal = ({ isOpen, onClose, className }: LoginModalProps) => {
+export const LoginModal = ({ isOpen, onClose, className = '' }: LoginModalProps) => {
   const classes = classNames('', {}, [className]);
 
   return (

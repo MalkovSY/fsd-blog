@@ -2,6 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'shared/lib/useTheme/ThemContext';
+import { LoginSchema } from 'features/AuthByUsername/model/types/LoginSchema';
 import { LoginForm } from './LoginForm';
 
 export default {
@@ -24,12 +25,12 @@ NormalError.decorators = [StoreDecorator({
     username: 'User',
     password: '12345',
     error: 'Неверный логин или пароль',
-  },
+  } as LoginSchema,
 })];
 
 export const Loading = Template.bind({});
 Loading.args = {};
-Loading.decorators = [StoreDecorator({ loginForm: { isLoading: true } })];
+Loading.decorators = [StoreDecorator({ loginForm: { isLoading: true } as LoginSchema })];
 
 export const Dark = Template.bind({});
 Dark.args = {};
@@ -42,5 +43,6 @@ DarkError.decorators = [StoreDecorator({
     username: 'User',
     password: '12345',
     error: 'Неверный логин или пароль',
+    isLoading: false,
   },
 }), ThemeDecorator(Theme.DARK)];

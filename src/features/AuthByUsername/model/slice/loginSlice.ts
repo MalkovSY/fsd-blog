@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction, ReducersMapObject } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { loginByUsername } from '../../model/services/loginByUsername';
 import { LoginSchema } from '../../model/types/LoginSchema';
 import { AUTH_LOCALSTORAGE_KEY } from '../../const/localStorage';
@@ -9,14 +9,14 @@ const initialState: LoginSchema = {
   isLoading: false,
 };
 
-export const loginSlice = createSlice<LoginSchema, ReducersMapObject>({
+export const loginSlice = createSlice({
   name: 'login',
   initialState,
   reducers: {
-    setUsername: (state, action: PayloadAction<string>) => {
+    setUsername: (state, action) => {
       state.username = action.payload;
     },
-    setPassword: (state, action: PayloadAction<string>) => {
+    setPassword: (state, action) => {
       state.password = action.payload;
     },
     authSubmit: (state) => {

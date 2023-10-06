@@ -4,7 +4,7 @@ import { User, UserSchema } from '../types/UserSchema';
 
 const initialState: UserSchema = {};
 
-export const userSlice = createSlice<UserSchema, ReducersMapObject>({
+export const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
