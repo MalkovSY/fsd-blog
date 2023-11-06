@@ -15,7 +15,8 @@
   "comments": [
     { "id": 1, "body": "some comment", "postId": 1 }
   ],
-  "profile": {
+  "profiles": [
+    {
     "id": "1",
     "username": "admin",
     "firstname": "Sergey",
@@ -25,5 +26,7 @@
     "age": 27,
     "city": "Saint-Petersburg",
     "country": "Russia",
-    "avatar": "https://yandex.ru/images/search?p=8&text=avatar+jpg&pos=35&rpt=simage&img_url=https%3A%2F%2Fpbs.twimg.com%2Fmedia%2FC4k-U0qXAAATHDJ.jpg&from=tabbar&lr=166226" }
+    "avatar": "https://yandex.ru/images/search?p=8&text=avatar+jpg&pos=35&rpt=simage&img_url=https%3A%2F%2Fpbs.twimg.com%2Fmedia%2FC4k-U0qXAAATHDJ.jpg&from=tabbar&lr=166226" 
+  }
+]
 }

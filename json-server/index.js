@@ -38,6 +38,28 @@ server.post('/login', (req, res) => {
   }
 });
 
+server.get('/profile', (req, res) => {
+  try {
+    const id = '1';
+    console.log('req111', req);
+    const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'));
+    const { profiles = [] } = db;
+
+    const profilesFromBd = profiles.find(
+      (profile) => profile.id === id,
+    );
+
+    if (profilesFromBd) {
+      return res.json(profilesFromBd);
+    }
+
+    return res.status(403).json({ message: 'Profile not found' });
+  } catch (e) {
+    console.log('get profile error:', e);
+    return res.status(500).json({ message: e.message });
+  }
+});
+
 // проверяем, авторизован ли пользователь
 // eslint-disable-next-line
 server.use((req, res, next) => {
