@@ -4,4 +4,4 @@ export { profileActions, profileReducer } from './model/slice/profileSlice';
 
 export { fetchProfileData } from './model/services';
 
-export { getProfile } from './model/selectors/getProfile';
+export { getProfile, getProfileError, getProfileLoading } from './model/selectors';

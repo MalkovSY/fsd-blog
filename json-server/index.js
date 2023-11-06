@@ -40,17 +40,11 @@ server.post('/login', (req, res) => {
 
 server.get('/profile', (req, res) => {
   try {
-    const id = '1';
-    console.log('req111', req);
     const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'));
-    const { profiles = [] } = db;
+    const { profiles = {} } = db;
 
-    const profilesFromBd = profiles.find(
-      (profile) => profile.id === id,
-    );
-
-    if (profilesFromBd) {
-      return res.json(profilesFromBd);
+    if (profiles) {
+      return res.json(profiles);
     }
 
     return res.status(403).json({ message: 'Profile not found' });
