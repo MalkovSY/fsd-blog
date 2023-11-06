@@ -28,7 +28,7 @@ const LoginFormReducers: ReducersList = {
 
 const LoginFormProto = ({
   onClose,
-  className = '',
+  className,
 }: LoginFormProps) => {
   const { t } = useTranslation();
   const dispatch = useDispatch<AppDispatch>();
