@@ -1,15 +1,13 @@
 import { useSelector } from 'react-redux';
 import {
-  getProfileLoading, getProfileError, getProfile, Profile,
+  getProfileLoading, getProfileError, getProfile,
 } from 'entities/Profile';
+import { Input } from 'shared/ui/Input/Input';
 
 export const ProfileCard = () => {
   const profile = useSelector(getProfile);
   const error = useSelector(getProfileError);
   const isLoading = useSelector(getProfileLoading);
-  console.log('profile', profile);
-  console.log('profileError', error);
-  console.log('isProfileLoading', isLoading);
 
   if (isLoading) {
     return <div>Загрузка...</div>;
@@ -19,9 +17,9 @@ export const ProfileCard = () => {
 
   return (
     <div>
-      <div>{username}</div>
-      <div>{firstname}</div>
-      <div>{lastname}</div>
+      <Input value={username} placeholder="Ваш логин" />
+      <Input value={firstname} placeholder="Ваше имя" />
+      <Input value={lastname} placeholder="Ваша фамилия" />
     </div>
   );
 };

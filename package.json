@@ -12,7 +12,7 @@
     "test:ui:report:json": "node scripts/generate-visual-json-report.js",
     "test:ui:report:html": "reg-cli --from .loki/report.json --report .loki/report.html",
     "start": "webpack serve --env port=3000",
-    "start:dev:server": "node ./json-server/index.js",
+    "server": "node ./json-server/index.js",
     "build": "webpack --env mode=development",
     "build:prod": "webpack  --env mode=production",
     "eslint": "eslint **/*.{ts,tsx}",
